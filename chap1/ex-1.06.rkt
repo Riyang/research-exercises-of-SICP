@@ -1,4 +1,4 @@
-;;Exercise1.6
+;; Exercise 1.6
 (define (p) (p))
 (if (= 0 0) 0 (p)) ;;value: 0
 (cond ((= 0 0) 0)
