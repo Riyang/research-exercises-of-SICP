@@ -1,4 +1,4 @@
-;Exercise1.3
+; Exercise 1.3
 ;Define a procedure that takes three numbers as arguments and ruturns
 ;the sum of the squares of the two larger numbers.
 
