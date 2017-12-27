@@ -17,3 +17,26 @@
 ; if b > 0, then (a-plus-abs-b a b) = (+ a b);
 ; else, which means b = 0 or b < 0, then (a-plus-abs-b a b) = (- a b).
 ; Thus, (a-plus-abs-b a b) is really computes: a plus the absolute value of b.
+
+; -------------------------------
+; something out of the exercise:
+; -------------------------------
+(define (abs-of x)
+  ((if (> x 0) + -) x))
+; test:
+(abs-of 1)
+(abs-of -1)
+(abs-of 0)
+; then, we can think about the two operators: + and -, do more tests:
+(+ 1)
+(+ -1)
+(+ 0)
+; and try (+)
+(- 1)
+(- -1)
+(- 0)
+; and try (-)
+; something else:
+(+ +1)
+(- +1)
+; Is that funny? Enjoy it. :)
