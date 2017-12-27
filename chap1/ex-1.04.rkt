@@ -31,11 +31,11 @@
 (+ 1)
 (+ -1)
 (+ 0)
-; and try (+)
+; and try (+), just evaluate (+), without any argument.
 (- 1)
 (- -1)
 (- 0)
-; and try (-)
+; and try (-), just evaluate (-), without any argument.
 ; something else:
 (+ +1)
 (- +1)
