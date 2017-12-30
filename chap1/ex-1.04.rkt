@@ -19,7 +19,7 @@
 ; Thus, (a-plus-abs-b a b) is really computes: a plus the absolute value of b.
 
 ; -------------------------------
-; something out of the exercise:
+; something beyond the exercise:
 ; -------------------------------
 (define (abs-of x)
   ((if (> x 0) + -) x))
