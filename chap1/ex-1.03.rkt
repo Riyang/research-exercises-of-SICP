@@ -12,6 +12,26 @@
 ; ------------------------------------------------------------------------------
 ; Part 1: Seven Methods for Exercise 1.3
 ; ------------------------------------------------------------------------------
+; predefine:
+(define (sqaure x) (* x x))
+(define (sum-of-squares x y)
+  (+ (square x) (square y)))
+; The following two procedure is primitive in my DrRacket(R5RS),
+; so I can't redefine them. And they can take arbitrary numbers of arguments,
+; but I just use it to take two arguments in this exercise.
+;(define (max x y)
+;  (if (> x y) x y))
+;(define (min x y)
+;  (if (< x y) x y))
+(define (max-of-three x y z)
+  (max (max x y) z))
+(define (min-of-three x y z)
+  (min (min x y) z))
+(define (mid-of-three x y z)
+  (max (min x y)
+       (min (max x y) z)))
+
+
 ; Method One
 ; First, get the max-of-three and the mid-of-three,
 ; then, evaluate the sum-of-squares of them.
