@@ -88,6 +88,30 @@
 ; ------------------------------------------------------------------------------
 ; Part 2: Abstraction for Exercise 1.3
 ; ------------------------------------------------------------------------------
+;  Define a procedure that takes three numbers as arguments
+; and returns the sum of the squares of the two larger numbers.
+;
+; Let's do some abstractions.
+; First, do abstraction for the arguments: three numbers => n numbers
+; Second, do abstraction for the inner operator:
+; the sum of the squares of := sum-of-squares
+; sum => difference => expt => etc
+; squares => cubes => expt => etc
+; or, sum-of-squares => f
+; Third, do abstraction for the inner operands:
+; the two larger numbers => the two smaller numbers
+;                        => the max number and the min number
+;                        => the k1th number and the k2th number(1 <= k1,k2 <= n)
+; and "two" can be abstactive:
+; the two larger numbers => the three larger numbers
+;                        => the four larger numbers
+;                        => the k larger numbers (1 <= k <= n)
+; All in all,
+;     the two larger numbers of three numbers
+;  => the specified k number(s) of n numbers (1 <= k <= n)
+; the abstraction for Exercise 1.3：
+;  Define a procedure that takes n numbers as arguments
+; and returns the f of the specified k number(s). (1 <= k <= n)
 
 ; ------------------------------------------------------------------------------
 ; Part 3: My Nagging, which you can totally ignore it.
