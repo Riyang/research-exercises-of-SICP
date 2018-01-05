@@ -6,7 +6,8 @@
 ; Three parts of this file:
 ; Part 1: Seven Methods for Exercise 1.3
 ; Part 2: Abstraction for Exercise 1.3
-; Part 3: My Nagging, which you can totally ignore it.
+; Part 3: My Nagging, which you can totally ignore it
+; Part 4: Some Exercises beyond Exercise 1.3
 ; ------------------------------------------------------------------------------
 
 ; ------------------------------------------------------------------------------
@@ -90,7 +91,7 @@
 ; ------------------------------------------------------------------------------
 ;  Define a procedure that takes three numbers as arguments
 ; and returns the sum of the squares of the two larger numbers.
-;
+; -------------------------------------------------------------
 ; Let's do some abstractions.
 ; First, do abstraction for the arguments: three numbers => n numbers
 ; Second, do abstraction for the inner operator:
@@ -109,11 +110,30 @@
 ; All in all,
 ;     the two larger numbers of three numbers
 ;  => the specified k number(s) of n numbers (1 <= k <= n)
-; the abstraction for Exercise 1.3：
+; --------------------------------
+; the abstraction for Exercise 1.3
 ;  Define a procedure that takes n numbers as arguments
 ; and returns the f of the specified k number(s). (1 <= k <= n)
+; -------------------------------------------------------------
+;
+; the abstraction for sum-of-squares,
+; we can change it to difference-of-squares, sum-of-cubes, square-of-sum, etc.
+; or we can just change it to function f, which takes the larger two numbers of
+; three as its arguments.
+; I think Method-Two is the best method for any function f.
+;
 
 ; ------------------------------------------------------------------------------
 ; Part 3: My Nagging, which you can totally ignore it.
 ; ------------------------------------------------------------------------------
 
+; ------------------------------------------------------------------------------
+; Part 4: Some Exercises beyond Exercise 1.3
+; ------------------------------------------------------------------------------
+; Exercise 1
+; Hwo to define mid-of-five (only use max, min)?
+; And mid-of-seven? mid-of-nine? and so on?
+;
+; Exercise 2
+; Hwo to use Method-Seven to define (sum-of-squares a b c d)?
+; (sum-of-squares a b c d e)? and so on?
