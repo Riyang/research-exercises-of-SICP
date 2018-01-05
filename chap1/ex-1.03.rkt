@@ -131,9 +131,9 @@
 ; Part 4: Some Exercises beyond Exercise 1.3
 ; ------------------------------------------------------------------------------
 ; Exercise 1
-; Hwo to define mid-of-five (only use max, min)?
+; How to define mid-of-five (only use max, min)?
 ; And mid-of-seven? mid-of-nine? and so on?
 ;
 ; Exercise 2
-; Hwo to use Method-Seven to define (sum-of-larger2 a b c d)?
+; How to use Method-Seven to define (sum-of-larger2 a b c d)?
 ; (sum-of-larger2 a b c d e)? and so on?
