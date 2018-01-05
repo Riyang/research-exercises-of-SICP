@@ -135,5 +135,5 @@
 ; And mid-of-seven? mid-of-nine? and so on?
 ;
 ; Exercise 2
-; Hwo to use Method-Seven to define (sum-of-squares a b c d)?
-; (sum-of-squares a b c d e)? and so on?
+; Hwo to use Method-Seven to define (sum-of-larger2 a b c d)?
+; (sum-of-larger2 a b c d e)? and so on?
