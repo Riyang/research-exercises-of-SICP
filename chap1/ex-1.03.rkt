@@ -36,24 +36,24 @@
 ; Method One
 ; First, get the max-of-three and the mid-of-three,
 ; then, evaluate the sum-of-squares of them.
-(define (sum-of-larger2 a b c)
+(define (sum-sqs-larger2 a b c)
   (sum-of-squares (max-of-three a b c)
                   (mid-of-three a b c)))
 
 ; Method Two
 ; First, sort the three numbers(from max to min, or min to max),
 ; then, evaluate the sum-of-squares of the larger two.
-(define (sum-of-larger2 a b c)
+(define (sum-sqs-larger2 a b c)
   (if (< a b)
-      (sum-of-larger2 b a c)
+      (sum-sqs-larger2 b a c)
       (if (< b c)
-          (sum-of-larger2 a c b)
+          (sum-sqs-larger2 a c b)
           (sum-of-squares a b))))  ; here, a >= b >= c
 
 ; Method Three
 ; First, we should know which number is the min-of-three,
 ; then, evaluate the sum-of-squares of the rest two.
-(define (sum-of-larger2 a b c)
+(define (sum-sqs-larger2 a b c)
   (cond ((= a (min-of-three a b c)) (sum-of-squares b c))
         ((= b (min-of-three a b c)) (sum-of-squares a c))
         ((= c (min-of-three a b c)) (sum-of-squares a b))))
@@ -61,27 +61,27 @@
 ; Method Four
 ; Ignore the min-of-three,
 ; then, evaluate the sum-of-squares of the larger two.
-(define (sum-of-larger2 a b c)
+(define (sum-sqs-larger2 a b c)
   (if (> a b)
       (sum-of-squares a (max b c))    ; here, (min b c) is the min-of-three
       (sum-of-squares b (max a c))))  ; here, (min a c) is the min-of-three
 
 ; Method Five
 ; a math method
-(define (sum-of-larger2 a b c)
+(define (sum-sqs-larger2 a b c)
   (max-of-three (sum-of-squares a b)
                 (sum-of-squares a c)
                 (sum-of-squares b c)))
 
 ; Method Six
 ; another math method
-(define (sum-of-larger2 a b c)
+(define (sum-sqs-larger2 a b c)
   (- (+ (square a) (square b) (square c))
      (square (min-of-three a b c))))
 
 ; Method Seven
 ; a special, and beautiful method
-(define (sum-of-larger2 a b c)
+(define (sum-sqs-larger2 a b c)
   (+ (if (or (>= a b) (>= a c)) (* a a) 0)
      (if (or (> b a) (>= b c)) (* b b) 0)
      (if (or (> c a) (> c b)) (* c c) 0)))
@@ -135,5 +135,63 @@
 ; And mid-of-seven? mid-of-nine? and so on?
 ;
 ; Exercise 2
-; How to use Method-Seven to define (sum-of-larger2 a b c d)?
-; (sum-of-larger2 a b c d e)? and so on?
+; How to prove that Method-Seven is right?
+;
+; Exercise 3
+; How to use Method-Seven to define (sum-sqs-larger2 a b c d)?
+; (sum-sqs-larger2 a b c d e)? and so on?
+
+; My Solutions:
+; Exercise 1: I don't know how to do that.
+; If you know it, please tell me. I'll be appreciative for that.
+;
+; Exercise 2:
+; here is Method Seven:
+(define (sum-sqs-larger2 a b c)
+  (+ (if (or (>= a b) (>= a c)) (* a a) 0)
+     (if (or (> b a) (>= b c)) (* b b) 0)
+     (if (or (> c a) (> c b)) (* c c) 0)))
+; Case One:
+;    x < y <= z or x < z <= y
+; => (+ 0 (* y y) (* z z)) => y^2 + z^2, which is right
+; Case Two:
+;    y < x <= z or y < z <= x
+; => (+ (* x x) 0 (* z z)) => x^2 + z^2, which is right
+; Case Three:
+;    z < x <= y or z < y <= x
+; => (+ (* x x) (* y y) 0) => x^2 + y^2, which is right
+; Case Four:
+;    x = z < y
+; => (+ (* x x) (* y y) 0) => x^2 + y^2, which is right
+; Case Five:
+;    x = y < z
+; => (+ (* x x) 0 (* z z)) => x^2 + z^2, which is right
+; Case Six:
+;    y = z < x
+; => (+ (* x x) (* y y) 0) => x^2 + y^2, which is right
+; Case Seven:
+;    x = y = z
+; => (+ (* x x) (* y y) 0) => x^2 + y^2, which is right
+; All in all,
+; with all the seven cases above, we can know that,
+; Method-Seven is totally right.
+;
+;
+; Exercise 3:
+(define (sum-sqs-larger2 a b c d)
+  (+ (if (or (>= a b) (>= a c) (>= a d)) (* a a) 0)
+     (if (or (> b a) (>= b c) (>= b d)) (* b b) 0)
+     (if (or (> c a) (> c b) (>= c d)) (* c c) 0)
+     (if (or (> d a) (> d b) (> d c)) (* d d) 0)))
+(define (sum-sqs-larger2 a b c d e)
+  (+ (if (or (>= a b) (>= a c) (>= a d) (>= a e)) (* a a) 0)
+     (if (or (> b a) (>= b c) (>= b d) (>= b e)) (* b b) 0)
+     (if (or (> c a) (> c b) (>= c d) (>= c e)) (* c c) 0)
+     (if (or (> d a) (> d b) (> d c) (>= d e)) (* d d) 0)
+     (if (or (> e a) (> e b) (> e c) (> e d)) (* e e) 0)))
+; Are they right? I can't promise it.
+; You can make some tests to figure out.
+; I don't have time to do that, sorry.
+
+; That's all my understanding about Exercise 1.3,
+; and I hope you enjoy it. :)
