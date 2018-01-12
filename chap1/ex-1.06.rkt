@@ -1,22 +1,44 @@
-;; Exercise 1.6
-(define (p) (p))
-(if (= 0 0) 0 (p)) ;;value: 0
-(cond ((= 0 0) 0)
-       (else (p))) ;;value: 0
-;;so, if-express and cond-express are both evaluated
-;;by normal-order evaluation.
-;;so, it's possible to express if-expression using cond-expression.
+; Exercise 1.6
 (define (new-if predicate then-clause else-clause)
   (cond (predicate then-clause)
         (else else-clause)))
-;;try to define sqrt-iter using the new-if expression.
-(define (sqrt-iter guess x)
-  (cond ((good-enough? guess x) guess)
-        (else (sqrt-iter (improve guess x) x))))
-(define (good-enough? guess x)
-  (< (abs (- (square guess) x)) 0.001))
-(define (improve guess x)
-  (average guess (/ x guess)))
-(define (average a b)
-  (/ (+ a b) 2.0))
-(define (square x) (* x x))
+
+(new-if (= 2 3) 0 5)
+; => 5
+
+(new-if (= 1 1) 0 5)
+; => 0
+
+; it seems no wrong.
+; but what if we try this:
+(define (p) (p))
+(if (= 1 1) 0 (p))
+(new-if (= 1 1) 0 (p))
+
+; you will figure out that the procedure above makes an endless process.
+; why?
+; I can tell you that, the reason is just like Exercise 1.5.
+; the orders of evaluation are different:
+; the if procedure is based on normal-order evaluation, but
+; the new-if procedure is based on applicative-order evaluation.
+; Thus,
+; (if (= 1 1) 0 (p)) will not evaluate (p) when it is not necessary,
+; otherwise,
+; (new-if (= 1 1) 0 (p)) will always evaluate every argument, including (p),
+; which makes an endless process.
+
+; So, you can work out what will happens
+; when Alyssa attempts to use this to compute square roots:
+;
+; (define (sqrt-iter guess x)
+;  (new-if (good-enough? guess x)
+;          guess
+;          (sqrt-iter (improve guess x)
+;                     x)))
+
+
+
+; SOMETHING ELSE:
+; I guess, every procedure(or function, operator),
+; which created from define-expression,
+; is based on applicative-order evaluation.
