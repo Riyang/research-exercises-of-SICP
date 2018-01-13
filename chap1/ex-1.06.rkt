@@ -5,17 +5,17 @@
 
 ; ------------------------------------------------------------------------------
 
-(new-if (= 2 3) 0 5)
-; => 5
+(new-if (= 1 2) 3 4)
+; => 4
 
-(new-if (= 1 1) 0 5)
-; => 0
+(new-if (= 1 1) 3 4)
+; => 3
 
 ; it seems no wrong.
 ; but what if we try this:
 (define (p) (p))
-(if (= 1 1) 0 (p))
-; (new-if (= 1 1) 0 (p))
+(if (= 1 1) 0 (p))          ; => 0
+; (new-if (= 1 1) 0 (p))    ; => ?
 
 ; You will figure out that the new-if procedure above makes an endless process.
 ; Why?
