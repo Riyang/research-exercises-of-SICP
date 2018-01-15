@@ -26,5 +26,8 @@
 ; large numbers:
 
 ; Part 2: change the good-enough procedure to a better method
+(define (good-enough? guess x)
+  (< (abs (- (/ (improve guess x) guess) 1))
+     0.00001))
 
 ; To be continue ...
