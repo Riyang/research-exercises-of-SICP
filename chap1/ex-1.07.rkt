@@ -24,6 +24,12 @@
 (Ysqrt 0.0000000000000001)
 
 ; large numbers:
+(Ysqrt 4444444)
+(sqrt 4444444)
+(Ysqrt 44444444444)
+(sqrt 44444444444)
+(Ysqrt 44444444444444444)
+(sqrt 44444444444444444)
 
 ; Part 2: change the good-enough procedure to a better method
 (define (good-enough? guess x)
